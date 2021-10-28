@@ -169,13 +169,6 @@ const AllCompetitions = () => {
 }
 
 const Wrapper = styled.div`
-	position: relative;
-	top: -81.5px;
-	background: white;
-	color: #212529;
-	width: 100%;
-	// padding: 40px;
-	// box-sizing: border-box;
 
 	.competitions-title {
 		font-family: 'Montserrat', sans-serif;
@@ -230,14 +223,31 @@ const Wrapper = styled.div`
 				line-height: 1.2;
 			}
 		}
+
+    :hover {
+      box-shadow: 0 3px 20px rgb(0 0 0 / 0.2);
+    }
 	}
+
 	@media screen and (min-width: 576px) {
-		.competition-list {
-			display: flex;
-			flex-direction: column;
-			.competition-list-1 {
+			.competition-list-1,
+      .competition-list-2,
+      .competition-list-3,
+      .competition-list-4,
+      .competition-list-5 {
 				display: flex;
 				justify-content: space-around;
+
+        div {
+          width: 45%;
+          text-align: left;
+          display: flex;
+          justify-content: flex-start;
+
+          .competition-text {
+            width: 100%;
+          }
+        }
 			}
 		}
 	}
