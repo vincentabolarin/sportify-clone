@@ -1,31 +1,30 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-} from "react-router-dom";
+  Link,
+  Switch
+} from 'react-router-dom';
+
 import './App.css';
 import Header from './components/Header.js';
 import AllCompetitions from './components/AllCompetitions';
 import Championship from './components/Championship'
 import Footer from './components/Footer.js';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <Header />
-        <Switch>
-          <Route path='/all-competitions'>
-            <AllCompetitions />
-          </Route>
-          <Route path='/championship'>
-            <Championship />
-          </Route>
-        </Switch>
+        <AllCompetitions />
+        <Championship />
         <Footer />
-      </Router>
-    </div>
+      </div>
+    </Router>   
   );
 }
 

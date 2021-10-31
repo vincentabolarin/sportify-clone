@@ -50,6 +50,32 @@ a:hover {
   color: #fff;
 }
 
+.competition-image-thumbnail {
+  max-height: 93px;
+  max-width: 70px;
+}
+
+.standings-image-thumbnail {
+  max-height: 45px;
+  max-width: 35px;
+  margin: 10px 20px;
+}
+
+.competitions-title {
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  padding: 25px;
+  padding-top: 0;
+  padding-left: 21.2px;
+}
+
+.navigation {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
 .competitions {
   position: relative;
 	top: -51.5px;
@@ -63,4 +89,47 @@ a:hover {
   border-radius: 3px;
   border: 1px solid #d3d3d3;
   padding-bottom: 30px;
+}
+
+.faint-text {
+  color: #6c757d;
+}
+
+.standings-header.standings-row {
+  font-weight: 600;
+}
+
+.standings-row {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid #dedede;
+}
+.standings-item-team,
+.standings-item-details {
+  color: #000
+}
+
+.standings-item-team {
+  display: flex;
+}
+
+.standings-header-details,
+.standings-item-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.standings-header-details p,
+.standings-item-details p {
+    margin-right: 20px;
+    width: 20px;
+}
+
+.standings-header-details p:last-child,
+.standings-item-details p:last-child {
+  margin-right: 0;
 }

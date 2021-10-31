@@ -1,9 +1,10 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const Footer = () => {
     return (
         <Wrapper className="footer">
-            <p className="built-by">
+            <p className="built-by faint-text">
                 <span>Built by </span>
                 <a href="https://www.twitter.com/vincentabolarin"><span>Vincent Abolarin</span></a>
             </p>
@@ -23,7 +24,6 @@ const Wrapper = styled.div`
     box-sizing: border-box;
 
     .built-by {
-        color: #6c757d;
         text-align: center;
         margin-top: 0;
         margin-bottom: 1rem;
