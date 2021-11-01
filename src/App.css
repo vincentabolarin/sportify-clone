@@ -50,6 +50,8 @@ a:hover {
   color: #fff;
 }
 
+/* IMAGE THUMBNAILS */
+
 .competition-image-thumbnail {
   max-height: 93px;
   max-width: 70px;
@@ -59,6 +61,11 @@ a:hover {
   max-height: 45px;
   max-width: 35px;
   margin: 10px 20px;
+}
+
+.matches-image-thumbnail {
+  max-width: 25px;
+  margin-right: 10px;
 }
 
 .competitions-title {
@@ -132,4 +139,71 @@ a:hover {
 .standings-header-details p:last-child,
 .standings-item-details p:last-child {
   margin-right: 0;
+}
+
+.matches-header {
+  margin-bottom: 0.5rem;
+  margin-left: 20px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+  color: #212529;
+}
+
+.matches-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid #dedede;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.matches-item:nth-child(odd) {
+  border-right: 0.5px solid #dedede;
+}
+
+.matches-team,
+.matches-team-details {
+  display: flex;
+}
+
+.matches-team {
+  justify-content: space-between;
+  align-items: center;
+  width: 80vw;
+}
+
+.matches-team-details {
+  justify-content: flex-start;
+}
+
+.matches-team-name,
+.matches-date,
+.matches-time {
+  font-size: 80%;
+  font-weight: 400;
+}
+
+.matches-team-score strong {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.matches-dates {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-left: 0.5rem;
+  border-left: 1px solid #dee2e6;
+}
+
+.matches-dates h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }

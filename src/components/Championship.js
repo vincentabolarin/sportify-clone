@@ -4,30 +4,51 @@ import axios from 'axios';
 
 import StandingsMatches from './common/StandingsMatches.js';
 import Standings from './common/Standings.js';
+import Matches from './common/Matches.js';
 
 const Championship = () => {
 
     const corsUrl = "https://cors-anywhere.herokuapp.com/";
-    const apiUrl = "https://api.football-data.org/v2/competitions/2016/standings?standingType=TOTAL";
+    const apiStandingsUrl = "https://api.football-data.org/v2/competitions/2016/standings?standingType=TOTAL";
+    const apiMatchesUrl = "https://api.football-data.org/v2/competitions/2016/matches?season=2021&matchday=15";
 
-    const url = `${corsUrl}${apiUrl}`;
+    const standingsUrl = `${corsUrl}${apiStandingsUrl}`;
+    const matchesUrl = `${corsUrl}${apiMatchesUrl}`;
 
-    const config = {
-        url,
+
+    const standingsConfig = {
+        standingsUrl,
         headers: {
         'X-Auth-Token': process.env.REACT_APP_API_TOKEN,
         },
     }
+
+    const matchesConfig = {
+        matchesUrl,
+        headers: {
+        'X-Auth-Token': process.env.REACT_APP_API_TOKEN,
+        },
+    }
+
     const [standings, setStandings] = useState(null);
+    const [matches, setMatches] = useState(null);
 
     useEffect(() => {
-        // console.log(process.env.REACT_APP_API_TOKEN, "abcd")
-        axios(config)
-        .then(response => {
-            // console.log(response.data)
-            setStandings(response.data);
-        }).catch(error => console.log(error))
+        axios.all([axios(standingsConfig), axios(matchesConfig)])
+        .then(axios.spread((...responses) => {
+            const standingsResponse = responses[0];
+            const matchesResponse = responses[1];
+            setStandings(standingsResponse.data);
+            setMatches(matchesResponse.data);
+        })).catch(error => console.log(error));
     });
+
+    // useEffect(() => {
+    //     axios(matchesConfig)
+    //     .then(response => {
+    //         setMatches(response.data);
+    //     }).catch(error => console.log(error))
+    // });
 
     return (
         <Wrapper className="competitions">
@@ -77,6 +98,51 @@ const Championship = () => {
                         </div>
                     </div>
 
+                )
+            }
+
+            {
+                matches && matches.matches[0].map(matches =>
+                    <div>
+                        <h4 className="matches-header">Matchweek {matches.season.currentMatchday}</h4>
+                        <div className="matches-item">
+                            <div className="matches-details">
+                            <div className="matches-team">
+                                <div className="matches-team-details">
+                                {/* <img className="matches-image-thumbnail" src={} alt="" /> */}
+                                <h4 className="matches-team-name">
+                                    {matches.homeTeam.name}
+                                </h4>
+                                </div>
+                                <div className="matches-team-score">
+                                <strong>{matches.score.fullTime.homeTeam}</strong>
+                                </div>
+                            </div>
+                            <div className="matches-team">
+                                <div className="matches-team-details">
+                                {/* <img className="matches-image-thumbnail" src={} alt="" /> */}
+                                <h4 className="matches-team-name">
+                                    {matches.awayTeam.name}
+                                </h4>
+                                </div>
+                                <div className="matches-team-score">
+                                <strong>{matches.score.fullTime.awayTeam}</strong>
+                                </div>
+                            </div>
+                            </div>
+                            <div className="matches-dates">
+                            <h6 className="matches-ft-or-ht">
+                                FT
+                            </h6>
+                            <p className="matches-date">
+                                10/29
+                            </p>
+                            <p className="matches-time">
+                                18:45
+                            </p>
+                            </div>
+                        </div>
+                    </div>
                 )
             }
         </Wrapper>

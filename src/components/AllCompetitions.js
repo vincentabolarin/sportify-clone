@@ -61,8 +61,8 @@ const AllCompetitions = () => {
                       </h6>
                     </div>
                   </div>
-                </div>
-              // </div>
+                {/* </div> */}
+              </div>
             ))
           }
       </Wrapper>
@@ -122,13 +122,10 @@ const Wrapper = styled.div`
 	@media screen and (min-width: 576px) {
 			.competition-list
        {
-        flex-direction: row;
-        flex: 0 0 40%;
-        flex-wrap: wrap;
-				align-items: flex-start;
-
+          flex-direction: row;
+          align-items: flex-start;
+        
         .competition-item {
-          // flex: 0 1 auto;
           max-width: 45%;
           text-align: left;
 

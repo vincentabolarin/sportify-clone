@@ -9,7 +9,7 @@ import {
 import './App.css';
 import Header from './components/Header.js';
 import AllCompetitions from './components/AllCompetitions';
-import Championship from './components/Championship'
+import Championship from './components/Championship';
 import Footer from './components/Footer.js';
 
 import dotenv from 'dotenv';

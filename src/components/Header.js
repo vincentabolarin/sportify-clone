@@ -1,13 +1,13 @@
+import React from 'react';
 import styled from 'styled-components';
+
 import headerImage from '../assets/header-image.jpg'
 import logo from '../assets/logo.png'
 
 const Header = () => {
     return (
         <Wrapper className="header">
-            {/* <a className="logo-link" href="#"> */}
-                <img src={logo} className="logo" alt="logo" />
-            {/* </a> */}
+            <img src={logo} className="logo" alt="logo" />
         </Wrapper>
     );
 }
